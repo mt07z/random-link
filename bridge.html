@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
@@ -9,13 +9,16 @@
   <script>
     // آدرس فعلی صفحه را می‌خوانیم
     const url = new URL(window.location.href);
-    // پارامتر ?go=... را از آدرس می‌گیریم
-    const target = url.searchParams.get("go");
+    // پارامتر ?go= را از آدرس می‌گیریم (به صورت کد شده)
+    const encodedTarget = url.searchParams.get("go");
 
-    // اگر پارامتر go وجود داشت، به آن آدرس برو
-    if (target) {
+    if (encodedTarget) {
+      // تبدیل رشتهٔ کدشده به لینک اصلی
+      const target = decodeURIComponent(encodedTarget);
+      // انتقال کاربر به لینک مقصد
       window.location.href = target;
     } else {
+      // اگر go وجود نداشت
       document.body.innerHTML = "<p>لینک مقصد پیدا نشد (پارامتر go خالی است).</p>";
     }
   </script>
