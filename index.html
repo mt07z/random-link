@@ -5,11 +5,11 @@
   <title>انتخاب تصادفی پرسش‌نامه</title>
 </head>
 <body>
-  <p>در حال انتخاب تصادفی پرسش‌نامه و انتقال به ایپل...</p>
+  <p>در حال انتخاب تصادفی پرسش‌نامه و انتقال به اپ‌پول...</p>
 
   <script>
-    // 1) این‌جا 24 لینک عمومی Eiple را وارد کن
-    const eipleLinks = [
+    // 1) 24 لینک عمومی epoll
+    const epollLinks = [
       "https://app.epoll.ir/62662475",
       "https://app.epoll.ir/75096550",
       "https://app.epoll.ir/75119825",
@@ -33,18 +33,20 @@
       "https://app.epoll.ir/74838150",
       "https://app.epoll.ir/74872350",
       "https://app.epoll.ir/74874250",
-      "https://app.epoll.ir/74955950",
+      "https://app.epoll.ir/74955950"
     ];
 
-    // 2) انتخاب تصادفی یک عدد بین 0 و 23
-    const randomIndex = Math.floor(Math.random() * eipleLinks.length);
-    const chosenEipleLink = eipleLinks[randomIndex];
+    // 2) انتخاب تصادفی یک لینک از بین 24 تا
+    const randomIndex = Math.floor(Math.random() * epollLinks.length);
+    const chosenLink = epollLinks[randomIndex];
 
-    // 3) ساختن آدرس پل (bridge) با پارامتر go (لینک ایپل به‌صورت کد شده)
-    const bridgeBase = "https://pars2024.github.io/eiple-random/bridge.html";
-    const redirectUrl = bridgeBase + "?go=" + encodeURIComponent(chosenEipleLink);
+    // 3) آدرس bridge (همین را نگه دار)
+    const bridgeBase = "https://mt07z.github.io/random-link/bridge.html";
 
-    // 4) انتقال کاربر به آدرس bridge
+    // 4) ساختن URL نهایی برای پل با پارامتر go (کدگذاری‌شده)
+    const redirectUrl = bridgeBase + "?go=" + encodeURIComponent(chosenLink);
+
+    // 5) انتقال کاربر به bridge
     window.location.href = redirectUrl;
   </script>
 </body>
