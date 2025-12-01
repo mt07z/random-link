@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting...</title>
+</head>
+<body>
+  <p>در حال انتقال به پرسش‌نامه...</p>
+  <script>
+    // آدرس فعلی صفحه را می‌خوانیم
+    const url = new URL(window.location.href);
+    // پارامتر ?go=... را از آدرس می‌گیریم
+    const target = url.searchParams.get("go");
+
+    // اگر پارامتر go وجود داشت، به آن آدرس برو
+    if (target) {
+      window.location.href = target;
+    } else {
+      document.body.innerHTML = "<p>لینک مقصد پیدا نشد (پارامتر go خالی است).</p>";
+    }
+  </script>
+</body>
+</html>
